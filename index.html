@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ODICart | Taste the Tradition of Odisha</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <span>ODI</span><b>Cart</b>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#cuisines">Odisha Cuisines</a>
+      <a href="#special">Special Dishes</a>
+      <a href="#festival">Festival Dishes</a>
+    </nav>
+
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart <span id="cartCount">0</span>
+    </button>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+      <p class="small-title">WELCOME TO ODICART</p>
+
+      <h1>
+        Taste the<br>
+        <span>Tradition of Odisha</span>
+      </h1>
+
+      <p>
+        Discover the authentic flavors, traditional cuisines,
+        seasonal Pithas and festive foods of Odisha.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#products" class="primary-btn">Explore Foods</a>
+        <a href="#about" class="secondary-btn">Our Story</a>
+      </div>
+    </div>
+
+    <div class="hero-food">
+      <div class="food-circle">🍛</div>
+      <div class="floating-card card-one">🌾 Traditional</div>
+      <div class="floating-card card-two">❤️ Authentic</div>
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORY SECTION -->
+  <section class="categories" id="cuisines">
+
+    <div class="section-heading">
+      <p>EXPLORE ODICART</p>
+      <h2>Discover Odisha's Flavours</h2>
+    </div>
+
+    <div class="category-grid">
+
+      <div class="category-card" onclick="filterProducts('meal')">
+        <div class="category-icon">🍛</div>
+        <h3>Odisha Cuisines</h3>
+        <p>Traditional meals and authentic regional flavors.</p>
+        <button>Explore →</button>
+      </div>
+
+      <div class="category-card" onclick="filterProducts('special')">
+        <div class="category-icon">⭐</div>
+        <h3>Special Dishes</h3>
+        <p>Famous and delicious dishes from Odisha.</p>
+        <button>Explore →</button>
+      </div>
+
+      <div class="category-card" onclick="filterProducts('festival')">
+        <div class="category-icon">🎉</div>
+        <h3>Festival Dishes</h3>
+        <p>Celebrate Odisha's festivals with traditional food.</p>
+        <button>Explore →</button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+
+    <div class="section-heading">
+      <p>OUR COLLECTION</p>
+      <h2>Traditional Odisha Food</h2>
+    </div>
+
+    <div class="filter-buttons">
+      <button class="filter active" onclick="filterProducts('all')">All</button>
+      <button class="filter" onclick="filterProducts('meal')">Meal Boxes</button>
+      <button class="filter" onclick="filterProducts('snack')">Snack Boxes</button>
+      <button class="filter" onclick="filterProducts('pitha')">Pitha</button>
+      <button class="filter" onclick="filterProducts('festival')">Festival</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <!-- MEAL BOX -->
+      <div class="product-card" data-category="meal">
+        <div class="product-image meal-img">🍛</div>
+
+        <div class="product-info">
+          <span class="tag">REGIONAL</span>
+          <h3>Odisha Regional Meal Box</h3>
+
+          <p>
+            Dalma • Santula • Besara • Saga • Khata • Rice
+          </p>
+
+          <div class="product-bottom">
+            <strong>₹249</strong>
+            <button onclick="addToCart('Odisha Regional Meal Box',249)">
+              Add +
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- SNACK BOX -->
+      <div class="product-card" data-category="snack">
+        <div class="product-image snack-img">🥘</div>
+
+        <div class="product-info">
+          <span class="tag">POPULAR</span>
+          <h3>Odisha Snack Box</h3>
+
+          <p>
+            Bara • Dahibara • Aloo Dum • Mudhi • Chakuli
+          </p>
+
+          <div class="product-bottom">
+            <strong>₹199</strong>
+            <button onclick="addToCart('Odisha Snack Box',199)">
+              Add +
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- MANDA -->
+      <div class="product-card" data-category="pitha">
+        <div class="product-image pitha-img">🥟</div>
+
+        <div class="product-info">
+          <span class="tag">PITHA</span>
+          <h3>Manda Pitha</h3>
+
+          <p>
+            A traditional Odisha steamed rice-flour delicacy.
+          </p>
+
+          <div class="product-bottom">
+            <strong>₹149</strong>
+            <button onclick="addToCart('Manda Pitha',149)">
+              Add +
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- KAKARA -->
+      <div class="product-card" data-category="pitha">
+        <div class="product-image pitha-img">🍘</div>
+
+        <div class="product-info">
+          <span class="tag">PITHA</span>
+          <h3>Kakara Pitha</h3>
+
+          <p>
+            Crispy outside with a delicious traditional filling.
+          </p>
+
+          <div class="product-bottom">
+            <strong>₹149</strong>
+            <button onclick="addToCart('Kakara Pitha',149)">
+              Add +
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- CHAKULI -->
+      <div class="product-card" data-category="pitha">
+        <div class="product-image pitha-img">🥞</div>
+
+        <div class="product-info">
+          <span class="tag">TRADITIONAL</span>
+          <h3>Chakuli Pitha</h3>
+
+          <p>
+            Soft and savory traditional Odisha rice-lentil pancake.
+          </p>
+
+          <div class="product-bottom">
+            <strong>₹129</strong>
+            <button onclick="addToCart('Chakuli Pitha',129)">
+              Add +
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- RAJA -->
+      <div class="product-card" data-category="festival">
+        <div class="product-image festival-img">🎊</div>
+
+        <div class="product-info">
+          <span class="tag">FESTIVAL</span>
+          <h3>Raja Festival Box</h3>
+
+          <p>
+            A special collection celebrating Odisha's Raja festival.
+          </p>
+
+          <div class="product-bottom">
+            <strong>₹399</strong>
+            <button onclick="addToCart('Raja Festival Box',399)">
+              Add +
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- NUA KHAI -->
+      <div class="product-card" data-category="festival">
+        <div class="product-image festival-img">🌾</div>
+
+        <div class="product-info">
+          <span class="tag">FESTIVAL</span>
+          <h3>Nuakhai Festival Box</h3>
+
+          <p>
+            Traditional festive flavors celebrating Nuakhai.
+          </p>
+
+          <div class="product-bottom">
+            <strong>₹449</strong>
+            <button onclick="addToCart('Nuakhai Festival Box',449)">
+              Add +
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- SPECIAL -->
+      <div class="product-card" data-category="special">
+        <div class="product-image special-img">🍮</div>
+
+        <div class="product-info">
+          <span class="tag">SPECIAL</span>
+          <h3>Chhena Poda</h3>
+
+          <p>
+            Odisha's famous caramelized cottage-cheese dessert.
+          </p>
+
+          <div class="product-bottom">
+            <strong>₹199</strong>
+            <button onclick="addToCart('Chhena Poda',199)">
+              Add +
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FESTIVAL SECTION -->
+  <section class="festival-section" id="festival">
+
+    <div class="festival-content">
+
+      <p>CELEBRATE THE ODIA WAY</p>
+
+      <h2>
+        Every Festival<br>
+        Has a Flavour.
+      </h2>
+
+      <p>
+        From Raja to Nuakhai, Kumar Purnima to Makar Sankranti,
+        discover traditional foods that make Odisha's celebrations special.
+      </p>
+
+      <button onclick="filterProducts('festival')">
+        Explore Festival Boxes →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="about-icon">🏺</div>
+
+    <div>
+      <p class="small-title">OUR MISSION</p>
+
+      <h2>
+        Bringing Odisha's<br>
+        culinary heritage to everyone.
+      </h2>
+
+      <p>
+        ODICart is a concept created to introduce the rich,
+        traditional and lesser-known food culture of Odisha
+        to people across India and beyond.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- ORDER -->
+  <section class="order-section">
+
+    <div>
+      <p class="small-title">WANT TO TASTE ODISHA?</p>
+
+      <h2>Bring tradition to your table.</h2>
+
+      <p>
+        Select your favorite food and send us an enquiry.
+      </p>
+    </div>
+
+    <button onclick="openOrder()">
+      Order / Enquire
+    </button>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-logo">
+      ODI<span>Cart</span>
+    </div>
+
+    <p>
+      Taste the Tradition of Odisha.
+    </p>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#cuisines">Cuisines</a>
+      <a href="#festival">Festivals</a>
+      <a href="#about">About</a>
+    </div>
+
+    <p class="copyright">
+      © 2026 ODICart. A celebration of Odisha's food heritage.
+    </p>
+
+  </footer>
+
+
+  <!-- CART MODAL -->
+  <div class="modal" id="cartModal">
+
+    <div class="modal-box">
+
+      <button class="close" onclick="closeCart()">×</button>
+
+      <h2>Your Cart 🛒</h2>
+
+      <div id="cartItems"></div>
+
+      <div class="cart-total">
+        Total: ₹<span id="cartTotal">0</span>
+      </div>
+
+      <button class="checkout" onclick="openOrder()">
+        Continue to Enquiry
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ORDER MODAL -->
+  <div class="modal" id="orderModal">
+
+    <div class="modal-box">
+
+      <button class="close" onclick="closeOrder()">×</button>
+
+      <h2>Order / Enquiry</h2>
+
+      <p>
+        Fill in your details and we will contact you.
+      </p>
+
+      <form onsubmit="submitOrder(event)">
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Your Name"
+          required
+        >
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Phone Number"
+          required
+        >
+
+        <textarea
+          id="message"
+          placeholder="What would you like to order?"
+          rows="4"
+          required
+        ></textarea>
+
+        <button class="checkout" type="submit">
+          Send Enquiry
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+  </html>
+  // ==============================
+// ODICart JavaScript
+// ==============================
+
+let cart = [];
+
+
+// ADD TO CART
+function addToCart(name, price) {
+
+  cart.push({
+    name: name,
+    price: price
+  });
+
+  updateCart();
+
+  alert(name + " added to your cart!");
+}
+
+
+// UPDATE CART
+function updateCart() {
+
+  const count = document.getElementById("cartCount");
+
+  count.textContent = cart.length;
+
+  const cartItems = document.getElementById("cartItems");
+
+  if (cart.length === 0) {
+
+    cartItems.innerHTML =
+      "<p>Your cart is empty.</p>";
+
+  } else {
+
+    cartItems.innerHTML = cart.map((item, index) => `
+      
+      <div class="cart-item">
+
+        <span>
+          ${item.name}
+        </span>
+
+        <strong>
+          ₹${item.price}
+          <button
+            onclick="removeItem(${index})"
+            style="
+              border:none;
+              background:none;
+              cursor:pointer;
+              margin-left:8px;
+            "
+          >
+            ❌
+          </button>
+        </strong>
+
+      </div>
+
+    `).join("");
+  }
+
+  calculateTotal();
+}
+
+
+// REMOVE ITEM
+function removeItem(index) {
+
+  cart.splice(index, 1);
+
+  updateCart();
+}
+
+
+// CALCULATE TOTAL
+function calculateTotal() {
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price,
+    0
+  );
+
+  document.getElementById("cartTotal").textContent = total;
+}
+
+
+// OPEN CART
+function openCart() {
+
+  document.getElementById("cartModal").style.display = "flex";
+
+  updateCart();
+}
+
+
+// CLOSE CART
+function closeCart() {
+
+  document.getElementById("cartModal").style.display = "none";
+}
+
+
+// OPEN ORDER
+function openOrder() {
+
+  closeCart();
+
+  document.getElementById("orderModal").style.display = "flex";
+}
+
+
+// CLOSE ORDER
+function closeOrder() {
+
+  document.getElementById("orderModal").style.display = "none";
+}
+
+
+// PRODUCT FILTER
+function filterProducts(category) {
+
+  const cards =
+    document.querySelectorAll(".product-card");
+
+  cards.forEach(card => {
+
+    if (
+      category === "all" ||
+      card.dataset.category === category
+    ) {
+
+      card.style.display = "block";
+
+    } else {
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+
+  // Update active filter button
+  document.querySelectorAll(".filter").forEach(button => {
+
+    button.classList.remove("active");
+
+  });
+
+
+  const buttons =
+    document.querySelectorAll(".filter");
+
+  buttons.forEach(button => {
+
+    if (
+      button.textContent
+        .toLowerCase()
+        .includes(category)
+    ) {
+
+      button.classList.add("active");
+
+    }
+
+  });
+
+
+  document
+    .getElementById("products")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+}
+
+
+// SUBMIT ORDER
+function submitOrder(event) {
+
+  event.preventDefault();
+
+  const name =
+    document.getElementById("name").value;
+
+  const phone =
+    document.getElementById("phone").value;
+
+  const message =
+    document.getElementById("message").value;
+
+  alert(
+    "Thank you, " +
+    name +
+    "!\n\nYour enquiry has been received.\n\n" +
+    "We will contact you at " +
+    phone +
+    "."
+  );
+
+  console.log({
+    name: name,
+    phone: phone,
+    message: message,
+    cart: cart
+  });
+
+  closeOrder();
+
+  document.querySelector("form").reset();
+}
+
+
+// CLOSE MODAL WHEN CLICKING OUTSIDE
+window.addEventListener("click", function(event) {
+
+  const cartModal =
+    document.getElementById("cartModal");
+
+  const orderModal =
+    document.getElementById("orderModal");
+
+  if (event.target === cartModal) {
+    closeCart();
+  }
+
+  if (event.target === orderModal) {
+    closeOrder();
+  }
+
+});
+
+
+// INITIAL CART
+updateCart();
